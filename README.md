@@ -19,5 +19,5 @@ BorrowHub is a web-based community rental platform developed for the ICT1209 Web
 - Git & GitHub
 
 ## Team Members
-- Eric
-- Partner's Name
+- AASHIK
+- RISLAM
