@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse Items — BorrowHub</title>
+<meta name="description" content="Browse rentable items on BorrowHub — filter by category, price and availability.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-lg bh-navbar sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <span class="navbar-brand-mark">B</span> BorrowHub
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bhNav" aria-controls="bhNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="bhNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="browse.html">Browse Items</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#how-it-works">How It Works</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="d-flex gap-2 mt-3 mt-lg-0">
+        <a href="login.html" class="btn btn-bh-outline">Login</a>
+        <a href="login.html" class="btn btn-bh-amber">Register</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ PAGE HEADER ============ -->
+<header class="hero py-5">
+  <div class="container">
+    <p class="eyebrow mb-2">1,200+ items near you</p>
+    <h1 class="mb-2" style="font-size:clamp(1.8rem,3vw,2.6rem);">Browse Items</h1>
+    <p class="text-muted-custom mb-0">Filter by category, price and availability to find exactly what you need.</p>
+  </div>
+</header>
+
+<section class="section-pad pt-4">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- ============ FILTER SIDEBAR ============ -->
+      <div class="col-lg-3">
+        <div class="filter-panel">
+          <h6>Search</h6>
+          <input type="search" class="form-control form-control-sm" placeholder="Search items…" data-filter-search aria-label="Search items">
+
+          <h6>Category</h6>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" value="electronics" id="catElectronics" data-filter-category>
+            <label class="form-check-label" for="catElectronics">Electronics</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" value="tools" id="catTools" data-filter-category>
+            <label class="form-check-label" for="catTools">Tools &amp; Equipment</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" value="sports" id="catSports" data-filter-category>
+            <label class="form-check-label" for="catSports">Sports &amp; Outdoor</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" value="photography" id="catPhotography" data-filter-category>
+            <label class="form-check-label" for="catPhotography">Photography</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" value="study" id="catStudy" data-filter-category>
+            <label class="form-check-label" for="catStudy">Study Essentials</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" value="home" id="catHome" data-filter-category>
+            <label class="form-check-label" for="catHome">Home &amp; Events</label>
+          </div>
+
+          <h6>Price Range <span class="info-dot" title="Shows items at or below this daily rate">?</span></h6>
+          <input type="range" class="form-range" min="100" max="1000" step="50" value="1000" data-filter-price>
+          <div class="d-flex justify-content-between small text-muted-custom">
+            <span>Rs. 100</span>
+            <span data-filter-price-output class="fw-semibold">Rs. 1000</span>
+          </div>
+
+          <h6>Availability</h6>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="availToday" data-filter-available>
+            <label class="form-check-label" for="availToday">Available Today</label>
+          </div>
+
+          <button type="button" class="btn btn-bh-outline btn-sm w-100 mt-3" data-clear-filters>
+            <i class="bi bi-arrow-counterclockwise me-1"></i>Clear Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- ============ ITEM GRID ============ -->
+      <div class="col-lg-9">
+        <div class="results-bar">
+          <div class="fw-semibold" data-result-count>8 items found</div>
+          <div class="d-flex align-items-center gap-2">
+            <label for="sortSelect" class="small text-muted-custom mb-0">Sort by:</label>
+            <select id="sortSelect" class="form-select form-select-sm" style="width:auto;" data-sort>
+              <option value="newest" selected>Newest First</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating-desc">Highest Rated</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row g-4" data-item-grid>
+
+          <div class="col-6 col-md-4 col-xl-3" data-item data-category="electronics" data-price="600" data-available="true" data-name="Laptop" data-rating="4.6" data-newest="8" data-location="Colombo" data-icon="bi-laptop" data-desc="A reliable everyday laptop, great for assignments, presentations and light editing. Charger included.">
+            <div class="tag-card">
+              <div class="tag-thumb"><i class="bi bi-laptop"></i></div>
+              <span class="tag-cat">Electronics</span>
+              <h3>Laptop</h3>
+              <div class="tag-price">Rs. 600 <small>/ day</small></div>
+              <div class="tag-meta"><span><i class="bi bi-geo-alt"></i> Colombo</span><span class="tag-rating">★ 4.6</span></div>
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-bh-outline btn-sm flex-grow-1 quick-view-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="bi bi-eye me-1"></i>Quick View</button>
+                <a href="#" class="btn btn-bh btn-sm">Borrow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-xl-3" data-item data-category="photography" data-price="600" data-available="true" data-name="Camera" data-rating="4.7" data-newest="7" data-location="Kandy" data-icon="bi-camera" data-desc="Mirrorless camera with a standard kit lens — ideal for events, portraits and short video shoots.">
+            <div class="tag-card">
+              <div class="tag-thumb"><i class="bi bi-camera"></i></div>
+              <span class="tag-cat">Photography</span>
+              <h3>Camera</h3>
+              <div class="tag-price">Rs. 600 <small>/ day</small></div>
+              <div class="tag-meta"><span><i class="bi bi-geo-alt"></i> Kandy</span><span class="tag-rating">★ 4.7</span></div>
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-bh-outline btn-sm flex-grow-1 quick-view-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="bi bi-eye me-1"></i>Quick View</button>
+                <a href="#" class="btn btn-bh btn-sm">Borrow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-xl-3" data-item data-category="tools" data-price="500" data-available="false" data-name="Power Drill" data-rating="4.6" data-newest="6" data-location="Kurunegala" data-icon="bi-tools" data-desc="Cordless power drill with two batteries and a mixed bit set — good for shelving and small home projects.">
+            <div class="tag-card">
+              <div class="tag-thumb"><i class="bi bi-tools"></i></div>
+              <span class="tag-cat">Tools &amp; Equipment</span>
+              <h3>Power Drill</h3>
+              <div class="tag-price">Rs. 500 <small>/ day</small></div>
+              <div class="tag-meta"><span><i class="bi bi-geo-alt"></i> Kurunegala</span><span class="tag-rating">★ 4.6</span></div>
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-bh-outline btn-sm flex-grow-1 quick-view-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="bi bi-eye me-1"></i>Quick View</button>
+                <a href="#" class="btn btn-bh btn-sm">Borrow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-xl-3" data-item data-category="sports" data-price="120" data-available="true" data-name="Helmet" data-rating="4.8" data-newest="5" data-location="Colombo" data-icon="bi-shield-check" data-desc="Certified sports helmet in good condition, adjustable fit — suitable for cycling or biking.">
+            <div class="tag-card">
+              <div class="tag-thumb"><i class="bi bi-shield-check"></i></div>
+              <span class="tag-cat">Sports &amp; Outdoor</span>
+              <h3>Helmet</h3>
+              <div class="tag-price">Rs. 120 <small>/ day</small></div>
+              <div class="tag-meta"><span><i class="bi bi-geo-alt"></i> Colombo</span><span class="tag-rating">★ 4.8</span></div>
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-bh-outline btn-sm flex-grow-1 quick-view-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="bi bi-eye me-1"></i>Quick View</button>
+                <a href="#" class="btn btn-bh btn-sm">Borrow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-xl-3" data-item data-category="electronics" data-price="800" data-available="true" data-name="Projector" data-rating="4.4" data-newest="4" data-location="Matara" data-icon="bi-projector" data-desc="HD projector with HDMI and screen included — great for study groups, presentations or movie nights.">
+            <div class="tag-card">
+              <div class="tag-thumb"><i class="bi bi-projector"></i></div>
+              <span class="tag-cat">Electronics</span>
+              <h3>Projector</h3>
+              <div class="tag-price">Rs. 800 <small>/ day</small></div>
+              <div class="tag-meta"><span><i class="bi bi-geo-alt"></i> Matara</span><span class="tag-rating">★ 4.4</span></div>
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-bh-outline btn-sm flex-grow-1 quick-view-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="bi bi-eye me-1"></i>Quick View</button>
+                <a href="#" class="btn btn-bh btn-sm">Borrow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-xl-3" data-item data-category="study" data-price="160" data-available="true" data-name="Scientific Calculator" data-rating="4.5" data-newest="3" data-location="Galle" data-icon="bi-calculator" data-desc="Exam-approved scientific calculator, all functions working — perfect for a single exam period.">
+            <div class="tag-card">
+              <div class="tag-thumb"><i class="bi bi-calculator"></i></div>
+              <span class="tag-cat">Study Essentials</span>
+              <h3>Scientific Calculator</h3>
+              <div class="tag-price">Rs. 160 <small>/ day</small></div>
+              <div class="tag-meta"><span><i class="bi bi-geo-alt"></i> Galle</span><span class="tag-rating">★ 4.5</span></div>
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-bh-outline btn-sm flex-grow-1 quick-view-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="bi bi-eye me-1"></i>Quick View</button>
+                <a href="#" class="btn btn-bh btn-sm">Borrow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-xl-3" data-item data-category="home" data-price="800" data-available="false" data-name="Speaker" data-rating="4.5" data-newest="2" data-location="Colombo" data-icon="bi-speaker" data-desc="Portable Bluetooth party speaker with strong bass — good for small gatherings and events.">
+            <div class="tag-card">
+              <div class="tag-thumb"><i class="bi bi-speaker"></i></div>
+              <span class="tag-cat">Home &amp; Events</span>
+              <h3>Speaker</h3>
+              <div class="tag-price">Rs. 800 <small>/ day</small></div>
+              <div class="tag-meta"><span><i class="bi bi-geo-alt"></i> Colombo</span><span class="tag-rating">★ 4.5</span></div>
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-bh-outline btn-sm flex-grow-1 quick-view-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="bi bi-eye me-1"></i>Quick View</button>
+                <a href="#" class="btn btn-bh btn-sm">Borrow</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-xl-3" data-item data-category="sports" data-price="400" data-available="true" data-name="Tent" data-rating="4.5" data-newest="1" data-location="Kandy" data-icon="bi-triangle" data-desc="4-person camping tent, waterproof, easy setup — comes with stakes and a carry bag.">
+            <div class="tag-card">
+              <div class="tag-thumb"><i class="bi bi-triangle"></i></div>
+              <span class="tag-cat">Sports &amp; Outdoor</span>
+              <h3>Tent</h3>
+              <div class="tag-price">Rs. 400 <small>/ day</small></div>
+              <div class="tag-meta"><span><i class="bi bi-geo-alt"></i> Kandy</span><span class="tag-rating">★ 4.5</span></div>
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-bh-outline btn-sm flex-grow-1 quick-view-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="bi bi-eye me-1"></i>Quick View</button>
+                <a href="#" class="btn btn-bh btn-sm">Borrow</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="empty-state" data-empty-state>
+          <i class="bi bi-inbox"></i>
+          <p class="mb-0">No items match your filters. Try clearing a few and searching again.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUICK VIEW MODAL ============ -->
+<div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content tag-modal">
+      <div class="modal-header">
+        <div class="d-flex align-items-center gap-2">
+          <span class="qv-icon-wrap"><i class="bi" id="qvIcon"></i></span>
+          <div>
+            <span class="tag-cat" id="qvCategory">Category</span>
+            <h5 class="modal-title mb-0" id="qvName">Item name</h5>
+          </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted-custom" id="qvDesc">Item description.</p>
+        <hr class="perforated my-3">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted-custom small"><i class="bi bi-geo-alt me-1"></i><span id="qvLocation">—</span></span>
+          <span class="tag-rating" id="qvRating">★ —</span>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="tag-price" id="qvPrice">Rs. — <small>/ day</small></span>
+          <span class="badge" id="qvAvailability">—</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-bh-outline btn-sm" data-bs-dismiss="modal">Close</button>
+        <a href="login.html" class="btn btn-bh-amber btn-sm">Send Rental Request</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bh-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <a href="index.html" class="navbar-brand text-white d-flex align-items-center gap-2 mb-2">
+          <span class="navbar-brand-mark">B</span> BorrowHub
+        </a>
+        <p class="small mb-3">Borrow what you need. Rent what you don't use. Save money, earn money.</p>
+        <div>
+          <a href="#" class="social-circle" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-circle" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-circle" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-circle" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="index.html">Home</a></li>
+          <li class="mb-2"><a href="browse.html">Browse Items</a></li>
+          <li class="mb-2"><a href="index.html#how-it-works">How It Works</a></li>
+          <li class="mb-2"><a href="login.html">List Your Item</a></li>
+          <li class="mb-2"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <h5>Categories</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="browse.html#electronics">Electronics</a></li>
+          <li class="mb-2"><a href="browse.html#tools">Tools &amp; Equipment</a></li>
+          <li class="mb-2"><a href="browse.html#sports">Sports &amp; Outdoor</a></li>
+          <li class="mb-2"><a href="browse.html#photography">Photography</a></li>
+          <li class="mb-2"><a href="browse.html#study">Study Essentials</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h5>Contact Us</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@borrowhub.lk</li>
+          <li class="mb-2"><i class="bi bi-telephone me-2"></i>+94 70 123 4567</li>
+          <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Colombo, Sri Lanka</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom text-center">© 2026 BorrowHub. All rights reserved.</div>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

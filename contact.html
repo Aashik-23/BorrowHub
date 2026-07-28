@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — BorrowHub</title>
+<meta name="description" content="Get in touch with the BorrowHub team — support, partnerships and general enquiries.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-lg bh-navbar sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <span class="navbar-brand-mark">B</span> BorrowHub
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bhNav" aria-controls="bhNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="bhNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="browse.html">Browse Items</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#how-it-works">How It Works</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="d-flex gap-2 mt-3 mt-lg-0">
+        <a href="login.html" class="btn btn-bh-outline">Login</a>
+        <a href="login.html" class="btn btn-bh-amber">Register</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero py-5">
+  <div class="container">
+    <p class="eyebrow mb-2">We'd love to hear from you</p>
+    <h1 class="mb-2" style="font-size:clamp(1.8rem,3vw,2.6rem);">Get in Touch</h1>
+    <p class="text-muted-custom mb-0">Questions, feedback, or a partnership idea — send us a message and we'll get back to you.</p>
+  </div>
+</header>
+
+<section class="section-pad pt-4">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- ============ CONTACT FORM ============ -->
+      <div class="col-lg-7 reveal">
+        <div class="form-card">
+          <h3 class="mb-1">Send us a message</h3>
+          <p class="text-muted-custom small mb-4">Fields marked are validated as you type.</p>
+
+          <form data-contact-form novalidate>
+            <div class="mb-3">
+              <label for="contactName" class="form-label">Your Name</label>
+              <input type="text" class="form-control" id="contactName" placeholder="Enter your name" required minlength="2">
+              <div class="invalid-feedback">Please enter your name (at least 2 characters).</div>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="contactEmail" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="contactEmail" placeholder="Enter your email" required>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="contactSubject" class="form-label">Subject</label>
+              <select class="form-select" id="contactSubject" required>
+                <option value="" selected disabled>Select a subject</option>
+                <option value="general">General Enquiry</option>
+                <option value="support">Account Support</option>
+                <option value="listing">Listing an Item</option>
+                <option value="partnership">Partnership</option>
+              </select>
+              <div class="invalid-feedback">Please select a subject.</div>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="contactMessage" class="form-label">Message</label>
+              <textarea class="form-control" id="contactMessage" rows="5" placeholder="Write your message…" required minlength="10"></textarea>
+              <div class="field-hint">Minimum 10 characters.</div>
+              <div class="invalid-feedback">Message should be at least 10 characters.</div>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+
+            <button type="submit" class="btn btn-bh w-100 w-sm-auto">
+              <i class="bi bi-send me-1"></i> Send Message
+            </button>
+
+            <div class="form-success" data-form-success>
+              <i class="bi bi-check-circle-fill"></i> Thanks — your message has been sent. We'll reply soon.
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ============ CONTACT INFO ============ -->
+      <div class="col-lg-5 reveal reveal-delay-2">
+        <div class="contact-info-row">
+          <i class="bi bi-envelope"></i>
+          <div>
+            <div class="fw-semibold">Email</div>
+            <div class="text-muted-custom small">info@borrowhub.lk</div>
+          </div>
+        </div>
+        <div class="contact-info-row">
+          <i class="bi bi-telephone"></i>
+          <div>
+            <div class="fw-semibold">Phone</div>
+            <div class="text-muted-custom small">+94 70 123 4567</div>
+          </div>
+        </div>
+        <div class="contact-info-row">
+          <i class="bi bi-geo-alt"></i>
+          <div>
+            <div class="fw-semibold">Address</div>
+            <div class="text-muted-custom small">123, Galle Road, Colombo 03, Sri Lanka</div>
+          </div>
+        </div>
+
+        <h6 class="eyebrow mt-4 mb-2">Business Hours</h6>
+        <ul class="list-unstyled small text-muted-custom mb-4">
+          <li class="d-flex justify-content-between border-bottom py-1"><span>Monday – Friday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li class="d-flex justify-content-between border-bottom py-1"><span>Saturday</span><span>9.00 AM – 1.00 PM</span></li>
+          <li class="d-flex justify-content-between py-1"><span>Sunday</span><span>Closed</span></li>
+        </ul>
+
+        <div class="map-placeholder">
+          <i class="bi bi-geo-alt-fill pin"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bh-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <a href="index.html" class="navbar-brand text-white d-flex align-items-center gap-2 mb-2">
+          <span class="navbar-brand-mark">B</span> BorrowHub
+        </a>
+        <p class="small mb-3">Borrow what you need. Rent what you don't use. Save money, earn money.</p>
+        <div>
+          <a href="#" class="social-circle" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-circle" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-circle" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-circle" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="index.html">Home</a></li>
+          <li class="mb-2"><a href="browse.html">Browse Items</a></li>
+          <li class="mb-2"><a href="index.html#how-it-works">How It Works</a></li>
+          <li class="mb-2"><a href="login.html">List Your Item</a></li>
+          <li class="mb-2"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <h5>Categories</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="browse.html#electronics">Electronics</a></li>
+          <li class="mb-2"><a href="browse.html#tools">Tools &amp; Equipment</a></li>
+          <li class="mb-2"><a href="browse.html#sports">Sports &amp; Outdoor</a></li>
+          <li class="mb-2"><a href="browse.html#photography">Photography</a></li>
+          <li class="mb-2"><a href="browse.html#study">Study Essentials</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h5>Contact Us</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@borrowhub.lk</li>
+          <li class="mb-2"><i class="bi bi-telephone me-2"></i>+94 70 123 4567</li>
+          <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Colombo, Sri Lanka</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom text-center">© 2026 BorrowHub. All rights reserved.</div>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
