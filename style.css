@@ -1,12 +1,7 @@
-/* =========================================================
-   BorrowHub — Design System
-   Concept: the rental "tag" — every listing reads like a
-   punched luggage / price tag on a string, a nod to the
-   physical claim-tickets you'd use to check something out.
-   ========================================================= */
+
 
 :root {
-  /* ---- Color tokens ---- */
+
   --forest: #1F4B3F;
   --forest-dark: #143229;
   --forest-tint: #E7EFE9;
@@ -20,12 +15,12 @@
   --danger: #C1443B;
   --success: #3C7A5A;
 
-  /* ---- Type ---- */
+
   --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
   --font-body: 'Inter', 'Segoe UI', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
-  /* ---- Radius / shadow ---- */
+
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
@@ -33,9 +28,7 @@
   --shadow-soft: 0 4px 14px -6px rgba(20, 50, 41, 0.18);
 }
 
-/* ---------------------------------------------------------
-   Base
---------------------------------------------------------- */
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -91,9 +84,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
   }
 }
 
-/* ---------------------------------------------------------
-   Navbar
---------------------------------------------------------- */
+
 .navbar-brand-mark {
   display: inline-flex;
   align-items: center;
@@ -173,9 +164,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
 }
 .btn-bh-amber:hover { background: var(--amber-dark); border-color: var(--amber-dark); color: #fff; }
 
-/* ---------------------------------------------------------
-   Hero + slider
---------------------------------------------------------- */
+
 .hero {
   background: linear-gradient(180deg, var(--forest-tint) 0%, var(--paper) 100%);
   padding: 4rem 0 3rem;
@@ -198,7 +187,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
 }
 .hero-search input:focus { outline: none; box-shadow: none; }
 
-/* Custom slider (not the bootstrap default markup) */
+
 .bh-slider {
   position: relative;
   border-radius: var(--radius-lg);
@@ -263,9 +252,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
 .bh-slider-arrow.prev { left: 12px; }
 .bh-slider-arrow.next { right: 12px; }
 
-/* ---------------------------------------------------------
-   Category chips
---------------------------------------------------------- */
+
 .cat-chip {
   background: var(--paper-raised);
   border: 1px solid var(--line);
@@ -285,9 +272,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
 .cat-chip i { font-size: 1.6rem; color: var(--forest); display: block; margin-bottom: .5rem; }
 .cat-chip span { font-size: .85rem; font-weight: 600; }
 
-/* ---------------------------------------------------------
-   Signature component: the rental TAG card
---------------------------------------------------------- */
+
 .tag-card {
   position: relative;
   background: var(--paper-raised);
@@ -312,7 +297,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
   border-style: solid;
 }
 
-/* punch hole + string */
+
 .tag-card::before {
   content: "";
   position: absolute;
@@ -384,7 +369,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
 
 .tag-card .btn-bh { margin-top: .85rem; width: 100%; }
 
-/* perforated divider (ticket-stub feel) */
+
 .perforated {
   border: none;
   height: 0;
@@ -392,9 +377,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
   margin: 0;
 }
 
-/* ---------------------------------------------------------
-   Buttons general
---------------------------------------------------------- */
+
 .btn-link-amber {
   color: var(--amber-dark);
   font-weight: 600;
@@ -404,9 +387,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
 }
 .btn-link-amber:hover { color: var(--forest-dark); border-color: var(--forest); }
 
-/* ---------------------------------------------------------
-   CTA band
---------------------------------------------------------- */
+
 .cta-band {
   background: var(--forest);
   border-radius: var(--radius-lg);
@@ -423,9 +404,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
   color: var(--amber);
 }
 
-/* ---------------------------------------------------------
-   Footer
---------------------------------------------------------- */
+
 .bh-footer {
   background: var(--forest-dark);
   color: #DDE7E1;
@@ -451,9 +430,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
   color: #A9BEB2;
 }
 
-/* ---------------------------------------------------------
-   Browse page — filters + grid
---------------------------------------------------------- */
+
 .filter-panel {
   background: var(--paper-raised);
   border: 1px solid var(--line);
@@ -495,9 +472,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
 .empty-state.show { display: block; }
 .empty-state i { font-size: 2.4rem; color: var(--line); display: block; margin-bottom: .75rem; }
 
-/* ---------------------------------------------------------
-   Forms (contact / login)
---------------------------------------------------------- */
+
 .form-card {
   background: var(--paper-raised);
   border: 1px solid var(--line);
@@ -557,7 +532,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
   font-size: 2rem; color: var(--amber-dark);
 }
 
-/* toast-like success message */
+
 .form-success {
   display: none;
   background: var(--forest-tint);
@@ -570,9 +545,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
 }
 .form-success.show { display: flex; align-items: center; gap: .5rem; }
 
-/* ---------------------------------------------------------
-   Login page split layout
---------------------------------------------------------- */
+
 .auth-wrap { min-height: calc(100vh - 250px); display: flex; align-items: center; }
 .auth-visual {
   background: var(--forest);
@@ -606,9 +579,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
 }
 .password-toggle:hover { color: var(--forest); }
 
-/* ---------------------------------------------------------
-   Quick View modal (Bootstrap modal, themed to match tags)
---------------------------------------------------------- */
+
 .tag-modal {
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
@@ -633,9 +604,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
 #qvAvailability.badge-available { background: var(--forest-tint); color: var(--success); border: 1px solid var(--success); }
 #qvAvailability.badge-unavailable { background: #F7E9E8; color: var(--danger); border: 1px solid var(--danger); }
 
-/* ---------------------------------------------------------
-   Scroll-reveal animation
---------------------------------------------------------- */
+
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -650,7 +619,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
 .reveal-delay-3 { transition-delay: .24s; }
 .reveal-delay-4 { transition-delay: .32s; }
 
-/* Tooltip-ish info bubble used on browse filters */
+
 .info-dot {
   display: inline-flex;
   width: 16px; height: 16px;
@@ -664,7 +633,7 @@ select:focus-visible, textarea:focus-visible, .btn:focus-visible {
   cursor: help;
 }
 
-/* Back-to-top */
+
 #backToTop {
   position: fixed;
   right: 1.25rem; bottom: 1.25rem;
