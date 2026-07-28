@@ -1,4 +1,4 @@
-# BorrowHub
+# BorrowHub 8
 
 BorrowHub is a web-based community rental platform developed for the ICT1209 Web Technologies Mini Project.
 
