@@ -1,0 +1,5 @@
+DirectoryIndex index.php
+Options -Indexes
+<FilesMatch "^(\..*|config\.php|lib\.php|setup\.php|reset-password\.php|install\.ps1|README\.md|VERIFICATION\.md)$">
+ Require all denied
+</FilesMatch>

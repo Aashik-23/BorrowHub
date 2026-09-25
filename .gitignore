@@ -1,0 +1,5 @@
+.local-credentials.txt
+uploads/*
+!uploads/.htaccess
+*.log
+config.local.php
